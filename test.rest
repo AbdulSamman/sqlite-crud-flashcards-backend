@@ -14,5 +14,9 @@ POST {{url}}/welcomeMessage
 content-type: application/json
 
 {
-    "message": "Welcome to welcome sitess. (Changed)"
+    "message": "Welcome to welcome sites. (Changed)"
 }
+
+ 
+### DELETE flashcard
+DELETE {{url}}/flashcards/1658

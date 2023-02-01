@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import * as model from "./model.js";
+import { fstat } from "fs";
 dotenv.config();
 
 const port = process.env.PORT || 3000;
@@ -32,6 +33,11 @@ app.post("/welcomeMessage", (req: express.Request, res: express.Response) => {
   const { message } = req.body;
   model.saveWelcomeMessage(message);
   res.status(200).json(message);
+});
+
+app.delete("/flashcards/:id", (req: express.Request, res: express.Response) => {
+  const { id } = req.params;
+  res.status(200).json(model.deleteFlashcard(id));
 });
 
 app.listen(port, () => {

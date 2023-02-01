@@ -24,6 +24,19 @@ export const saveWelcomeMessage = (welcomeMessage) => {
     const saveMessage = fs.writeFileSync(welcomeMessagePathFileName, welcomeMessage);
     return saveMessage;
 };
+export const deleteFlashcard = (id) => {
+    try {
+        const stmt = db.prepare("DELETE FROM flashcards WHERE id=?");
+        const result = stmt.run(id);
+        console.log(result);
+    }
+    catch (error) {
+        return {
+            status: "error",
+            message: error.message,
+        };
+    }
+};
 export const getApiInstructions = () => {
     return `
     

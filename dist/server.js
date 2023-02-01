@@ -25,6 +25,10 @@ app.post("/welcomeMessage", (req, res) => {
     model.saveWelcomeMessage(message);
     res.status(200).json(message);
 });
+app.delete("/flashcards/:id", (req, res) => {
+    const { id } = req.params;
+    res.status(200).json(model.deleteFlashcard(id));
+});
 app.listen(port, () => {
     console.log(`server listening on http://localhost:${port}`);
 });
