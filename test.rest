@@ -1,0 +1,18 @@
+@url =http://localhost:4004
+
+### Base
+{{url}}
+
+### GET flashcards
+GET {{url}}/flashcards
+
+### GET welcomeMessage
+GET {{url}}/welcomeMessage
+
+### POST welcomeMessage
+POST {{url}}/welcomeMessage
+content-type: application/json
+
+{
+    "message": "Welcome to welcome sitess. (Changed)"
+}
