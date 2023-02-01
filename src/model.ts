@@ -41,7 +41,7 @@ export const deleteFlashcard = (id: string) => {
   try {
     const stmt = db.prepare("DELETE FROM flashcards WHERE id=?");
     const result = stmt.run(id);
-    console.log(result);
+    return result;
   } catch (error) {
     return {
       status: "error",
