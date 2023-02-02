@@ -39,6 +39,10 @@ app.get("/", (req, res) => {
 app.get("/flashcards", (req, res) => {
     res.status(200).json(model.getFlashCards());
 });
+app.get("/flashcards/:id", (req, res) => {
+    const { id } = req.params;
+    res.status(200).json(model.getFlashCard(id));
+});
 app.get("/welcomeMessage", (req, res) => {
     res.status(200).json(model.getWelcomeMessage());
 });
@@ -56,7 +60,15 @@ app.post("/login", (req, res) => {
         res.status(200).send("ok");
     }
     else {
-        res.status(200).send({});
+        res.status(401).send({});
+    }
+});
+app.get("/currentUser", (req, res) => {
+    if (req.session.user) {
+        res.send(req.session.user);
+    }
+    else {
+        res.status(403).send({});
     }
 });
 app.get("/logout", (req, res) => {

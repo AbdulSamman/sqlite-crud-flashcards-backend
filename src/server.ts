@@ -58,6 +58,11 @@ app.get("/flashcards", (req: express.Request, res: express.Response) => {
   res.status(200).json(model.getFlashCards());
 });
 
+app.get("/flashcards/:id", (req: express.Request, res: express.Response) => {
+  const { id } = req.params;
+  res.status(200).json(model.getFlashCard(id));
+});
+
 app.get("/welcomeMessage", (req: express.Request, res: express.Response) => {
   res.status(200).json(model.getWelcomeMessage());
 });
@@ -81,7 +86,14 @@ app.post("/login", (req: express.Request, res: express.Response) => {
     req.session.save();
     res.status(200).send("ok");
   } else {
-    res.status(200).send({});
+    res.status(401).send({});
+  }
+});
+app.get("/currentUser", (req: express.Request, res: express.Response) => {
+  if (req.session.user) {
+    res.send(req.session.user);
+  } else {
+    res.status(403).send({});
   }
 });
 

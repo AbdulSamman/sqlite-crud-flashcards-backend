@@ -6,6 +6,10 @@
 ### GET flashcards
 GET {{url}}/flashcards
 
+### GET SINGLE flashcard
+GET {{url}}/flashcards/2768
+
+
 ### GET welcomeMessage
 GET {{url}}/welcomeMessage
 
@@ -14,9 +18,25 @@ POST {{url}}/welcomeMessage
 content-type: application/json
 
 {
-    "message": "Welcome to welcome sites. (Changed)"
+    "message": "Welcome to welcomee sites. (Changed)"
 }
-
  
 ### DELETE flashcard
 DELETE {{url}}/flashcards/1658
+
+### BAD LOGIN
+POST {{url}}/login
+content-type: application/json
+
+{
+    "password": "se123"
+}
+
+### SUCCESSFUL LOGIN
+POST {{url}}/login
+content-type: application/json
+
+{
+    "password": "123"
+}
+

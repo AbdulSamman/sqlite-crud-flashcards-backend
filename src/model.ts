@@ -23,6 +23,26 @@ export const getFlashCards = (): IFlashcard[] => {
   return flashCards;
 };
 
+export const getFlashCard = (id: string) => {
+  try {
+    const stmt = db.prepare("SELECT * FROM flashcards WHERE id=?");
+    const result = stmt.get(id);
+    if (result === undefined) {
+      return result;
+    } else {
+      const flashCard: IFlashcard = {
+        ...result,
+      };
+      return flashCard;
+    }
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
 export const getWelcomeMessage = () => {
   const message = fs.readFileSync(welcomeMessagePathFileName, {
     flag: "r",
