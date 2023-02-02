@@ -2,7 +2,9 @@ import Database from "better-sqlite3";
 import * as tools from "./tools.js";
 import fs from "fs";
 const dbAbsolutePathAndFileName = tools.absolutifyPathAndFileName("src/data/flashcards.sqlite");
+// db from better-sqlite
 const db = new Database(dbAbsolutePathAndFileName);
+// verschiedene users gleichzeitig benutzen können
 db.pragma(`journal_mode = WAL`);
 const welcomeMessagePathFileName = "./src/data/welcomemessage.sqlite";
 export const getFlashCards = () => {
