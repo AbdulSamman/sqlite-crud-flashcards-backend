@@ -24,6 +24,9 @@ content-type: application/json
 ### DELETE flashcard
 DELETE {{url}}/flashcards/1658
 
+### DELETE BAD flashcard
+DELETE {{url}}/flashcards/asdasd
+
 ### BAD LOGIN
 POST {{url}}/login
 content-type: application/json

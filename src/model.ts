@@ -63,7 +63,17 @@ export const deleteFlashcard = (id: string) => {
   try {
     const stmt = db.prepare("DELETE FROM flashcards WHERE id=?");
     const result = stmt.run(id);
-    return result;
+    if (result.changes === 1) {
+      return {
+        status: "success",
+        deletedFlashcard: stmt,
+      };
+    } else {
+      return {
+        status: "error",
+        message: `database changes = ${result.changes}`,
+      };
+    }
   } catch (error) {
     return {
       status: "error",
