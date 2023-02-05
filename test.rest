@@ -9,6 +9,11 @@ GET {{url}}/flashcards
 ### GET SINGLE flashcard
 GET {{url}}/flashcards/2768
 
+### GET BAD SINGLE flashcard
+GET {{url}}/flashcards/qewe
+
+
+
 
 ### GET welcomeMessage
 GET {{url}}/welcomeMessage

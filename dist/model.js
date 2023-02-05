@@ -20,7 +20,10 @@ export const getFlashCard = (id) => {
         const stmt = db.prepare("SELECT * FROM flashcards WHERE id=?");
         const result = stmt.get(id);
         if (result === undefined) {
-            return result;
+            return {
+                status: "error",
+                message: `database changes = ${result.changes}`,
+            };
         }
         else {
             const flashCard = {

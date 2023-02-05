@@ -41,6 +41,9 @@ app.get("/flashcards", (req, res) => {
 });
 app.get("/flashcards/:id", (req, res) => {
     const { id } = req.params;
+    if (id === undefined) {
+        res.status(401).json(`${id} not found`);
+    }
     res.status(200).json(model.getFlashCard(id));
 });
 app.get("/welcomeMessage", (req, res) => {
