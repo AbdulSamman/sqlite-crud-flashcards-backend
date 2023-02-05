@@ -93,6 +93,7 @@ export const getApiInstructions = () => {
     <h1>SQLite Site API</h1>
     <ul>
 	<li><a href="/flashcards">/flashcards</a> - all flashcards</li>
+  <li><a href="/flashcards/2768">/flashcards/2768</a> - get single flashcard id: 2768</li>
   <li><a href="/welcomemessage">/welcomemessage</a> - Welcome Message</li>
 </ul>
     `;

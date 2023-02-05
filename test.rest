@@ -18,7 +18,7 @@ POST {{url}}/welcomeMessage
 content-type: application/json
 
 {
-    "message": "Welcome to welcomee sites. (Changed)"
+    "message": "Welcome to welcomee sites. (Changed)!"
 }
  
 ### DELETE flashcard
